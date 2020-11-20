@@ -12,8 +12,8 @@
 size_t
 default_ht_hash_f(const void *key, size_t len)
 {
-  size_t        ret   = 0;
-  unsigned char *ckey = (unsigned char *)key;
+  size_t              ret   = 0;
+  const unsigned char *ckey = (const unsigned char *)key;
 
   for (size_t i = 0; i < len; i++) {
     ret += (size_t)ckey[i];
