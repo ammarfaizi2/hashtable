@@ -3,11 +3,20 @@
 #define __HASHTABLE_H
 
 #include <stddef.h>
+#include <stdint.h>
+
+#define likely(EXPR)   __builtin_expect((EXPR), 1)
+#define unlikely(EXPR) __builtin_expect((EXPR), 0)
+
+#define OFFSETOF(TYPE, MEMBER) ((size_t)&(((TYPE *)0)->MEMBER))
+
+#define HT_DEFAULT_GROUP_SIZE (4096ul)
 
 typedef struct _GroupBucket GroupBucket;
 typedef struct _HtBucket    HtBucket;
 typedef struct _HashTable   HashTable;
 typedef struct _HtItem      HtItem;
+typedef size_t (*HashFunc)(const void *key, size_t len);
 
 struct _HtItem
 {
