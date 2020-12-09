@@ -1,4 +1,2 @@
-libhashtable.so
-hashtable
-libnohashtable.so
-no_hash
+*.o
+*.so
